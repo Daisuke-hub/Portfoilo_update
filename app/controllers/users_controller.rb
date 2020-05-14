@@ -4,11 +4,13 @@ class UsersController < ApplicationController
   def index
     users_search = User.search(params[:instrument],params[:sex],params[:age_st],params[:age_ed],params[:region],params[:level],params[:introduction])
     @users_all = users_search.joins(:genres).where(genres: {genre_name: params[:genre_name]})
-    if @users_all.count == 0
+    @users_all_count = @users_all.count
+    if @users_all_count == 0
       @users_all = users_search
     end
     @per = 20
     @users = @users_all.page(params[:page]).per(@per)
+    @users_count = @users.count
   end
 
   def show
