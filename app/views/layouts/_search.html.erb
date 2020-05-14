@@ -5,7 +5,7 @@
       <%= @users.current_page * @per - @per + 1 %>〜
     <% end %>
     <%= @users.current_page * @per - @per + @users_count %>件目を表示 / 全
-    <%= @users_all_count %>件
+    <%= @users_all.count %>件
   </span>
 </div>
 
@@ -78,7 +78,7 @@
       <%= @users.current_page * @per - @per + 1 %>〜
     <% end %>
     <%= @users.current_page * @per - @per + @users_count %>件目を表示 / 全
-    <%= @users_all_count %>件
+    <%= @users_all.count %>件
   <% end %>
 </div>
 <%= paginate @users %>
