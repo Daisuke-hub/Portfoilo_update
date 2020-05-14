@@ -1,11 +1,11 @@
 <div id="page_count_move">
   <span class="page_count">
-    <% if @users.count == 0 %>0 〜
+    <% if @users_count == 0 %>0 〜
     <% else %>
       <%= @users.current_page * @per - @per + 1 %>〜
     <% end %>
-    <%= @users.current_page * @per - @per + @users.count %>件目を表示 / 全
-    <%= @users_all.count %>件
+    <%= @users.current_page * @per - @per + @users_count %>件目を表示 / 全
+    <%= @users_all_count %>件
   </span>
 </div>
 
@@ -72,13 +72,13 @@
 </table>
 
 <div class="page_count">
-  <%if @users.count >= 9 %>
-    <% if @users.count == 0 %>0 〜
+  <%if @users_count >= 9 %>
+    <% if @users_count == 0 %>0 〜
     <% else %>
       <%= @users.current_page * @per - @per + 1 %>〜
     <% end %>
-    <%= @users.current_page * @per - @per + @users.count %>件目を表示 / 全
-    <%= @users_all.count %>件
+    <%= @users.current_page * @per - @per + @users_count %>件目を表示 / 全
+    <%= @users_all_count %>件
   <% end %>
 </div>
 <%= paginate @users %>
